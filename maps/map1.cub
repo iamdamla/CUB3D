@@ -1,0 +1,12 @@
+NO      ./textures/blue_wall.png
+SO ./textures/brick_wall.png
+WE ./textures/green_wall.png
+EA ./textures/yellow_wall.png
+
+F 220,100,0
+C 225,30,0
+
+111111111
+1N0000001
+100000001
+111111111
