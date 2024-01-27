@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acaplat <acaplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 10:43:32 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/24 18:35:31 by acaplat          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:17:57 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ size_t	ft_wordcount(const char *s, char c)
 	while (s[i])
 	{
 		if (s[i] != c)
-		w += 1;
+			w += 1;
 		while (s[i] != c && s[i + 1])
-		i += 1;
+			i += 1;
 		i += 1;
 	}
 	return (w);

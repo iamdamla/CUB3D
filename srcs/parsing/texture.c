@@ -6,62 +6,11 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 13:23:11 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:38:10 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:11:46 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
-
-static void	texture_helper(char **map, t_cub *cub, int i, int j)
-{
-	int	start;
-
-	if (map[i][j] == 'W' && map[i][j + 1] == 'E')
-	{
-		start = j + 2;
-		while (map[i][start] == ' ')
-			++start;
-		cub->path_west = map[i] + start;
-	}
-	else if (map[i][j] == 'E' && map[i][j + 1] == 'A')
-	{
-		start = j + 2;
-		while (map[i][start] == ' ')
-			++start;
-		cub->path_east = map[i] + start;
-	}
-	else if (map[i][j] == 'S' && map[i][j + 1] == 'O')
-	{
-		start = j + 2;
-		while (map[i][start] == ' ')
-			++start;
-		cub->path_south = map[i] + start;
-	}
-}
-
-void	check_map_texture(char **map, t_cub *cub)
-{
-	int	i;
-	int	j;
-	int	start;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j] == ' ')
-			++j;
-		if (map[i][j] == 'N' && map[i][j + 1] == 'O')
-		{
-			start = j + 2;
-			while (map[i][start] == ' ')
-				++start;
-			cub->path_north = map[i] + start;
-		}
-		texture_helper(map, cub, i, j);
-		i++;
-	}
-}
 
 void	get_color(char *line, t_cub *cub)
 {
@@ -80,54 +29,68 @@ void	get_color(char *line, t_cub *cub)
 	}
 }
 
-static char	*remove_spaces(const char *str)
+static void	remove_spaces(char *str)
 {
-	int		len;
-	char	*result;
-	int		result_index;
-	int		i;
+	int	k;
+	int	i;
 
-	len = ft_strlen(str);
-	result = malloc(len + 1);
-	if (result == NULL)
-		return (NULL);
-	result_index = 0;
+	k = 0;
 	i = 0;
-	while (i < len)
+	while (str[i])
 	{
-		if (!ft_isspace(str[i]))
-			result[result_index++] = str[i];
+		if (str[i] != ' ')
+			str[k++] = str[i];
 		i++;
 	}
-	result[result_index] = '\0';
-	return (result);
+	str[k] = '\0';
+}
+
+static char	*extract_color(char *line, int start)
+{
+	char	*test;
+
+	test = ft_strdup(line + start + 1);
+	return (test);
+}
+
+static void	update_color(char type, char *color_code, t_cub *cub)
+{
+	remove_spaces(color_code);
+	if (type == 'C')
+	{
+		cub->ceilling_color = color_code;
+		printf("%s\n", cub->ceilling_color);
+	}
+	else if (type == 'F')
+	{
+		cub->floor_color = color_code;
+		printf("%s\n", cub->floor_color);
+	}
 }
 
 void	check_map_color(char **map, t_cub *cub)
 {
-	char	*color_code;
 	int		i;
+	char	*color_code;
 	int		j;
-	int		start;
 
-	i = -1;
-	while (map[++i])
+	i = 0;
+	while (map[i])
 	{
-		j = 1;
+		j = 0;
 		while (map[i][j] == ' ')
 			j++;
-		if (map[i][j] == 'C' || map[i][j] == 'F')
+		while (map[i][j])
 		{
-			start = j + 1;
-			while (map[i][start] == ' ')
-				++start;
-			color_code = remove_spaces(map[i] + start);
-			if (map[i][j] == 'C')
-				cub->ceilling_color = color_code;
-			else if (map[i][j] == 'F')
-				cub->floor_color = color_code;
-			get_color(map[i], cub);
-			free(color_code);
+			if (map[i][j] == 'C' || map[i][j] == 'F')
+			{
+				color_code = extract_color(map[i], j);
+				update_color(map[i][j], color_code, cub);
+				get_color(map[i], cub);
+				free(color_code);
+			}
+			j++;
 		}
+		i++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: derblang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:44:05 by derblang          #+#    #+#             */
-/*   Updated: 2022/11/07 15:49:41 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:18:09 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_atoi(const char *str)
 	if ((str[i] == '-' || str[i] == '+'))
 	{
 		if (str[i] == '-')
-				sign *= -1;
+			sign *= -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')

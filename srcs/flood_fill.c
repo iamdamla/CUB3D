@@ -6,7 +6,7 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:07:05 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:39:46 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:14:27 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	fill(char **map, t_point cur, int horizontale, int verticale)
 	fill(map, (t_point){cur.x, cur.y - 1}, horizontale, verticale);
 	fill(map, (t_point){cur.x, cur.y + 1}, horizontale, verticale);
 }
-
 
 void	flood_fill(char **map, int horizontale, int verticale)
 {

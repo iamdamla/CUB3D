@@ -1,10 +1,16 @@
-NO      ./textures/yellow_wall.png
-SO ./textures/green_wall.png
-WE ./textures/blue_wall.png
-EA ./textures/brick_wall.png
+                         NO      ./textures/colorstone.png
 
-F 0,    128, 128
-C 0,0,0
+
+        SO        ./textures/greystone.png
+  WE ./textures/bluestone.png
+
+  
+EA ./textures/redbrick.png
+
+ F     0,         0,      0
+
+
+        C   255,          255,       255
 
         1111111111111111111111111
         1000000000110000000000001
@@ -17,6 +23,6 @@ C 0,0,0
 11000000110101011100100010001
 10000000000000000000000000001
 10000N00000000001101010010001
-1100000111010101111101111000111
+11000001110101011111011110001
 11111110111010111011110100011
 1111111111111111 111111111111

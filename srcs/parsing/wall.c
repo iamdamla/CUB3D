@@ -6,7 +6,7 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:57:29 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:38:43 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:05:30 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,6 @@ int	check_around(char **map, int i, size_t j)
 		return (-1);
 	else if (i > 0 && map[i - 1] && j < ft_strlen(map[i - 1]) && map[i
 			- 1][j] != '1' && map[i - 1][j] != ' ' && map[i - 1][j] != '\n')
-		return (-1);
-	else if (map[i + 1] && j < ft_strlen(map[i + 1]) && map[i + 1][j] == '1'
-		&& map[i - 1] && j < ft_strlen(map[i - 1]) && map[i - 1][j] != '1'
-		&& map[i][j - 1] && map[i][j - 1] != '1' && map[i][j - 1] != ' '
-		&& map[i][j - 1] != '\n')
 		return (-1);
 	return (0);
 }

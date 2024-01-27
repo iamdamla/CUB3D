@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acaplat <acaplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:07:55 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/24 18:14:29 by acaplat          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:17:44 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			ptr[len - i] = ptr2[len - i];
 	else
 		while (len-- > 0)
-				*(ptr++) = *(ptr2++);
+			*(ptr++) = *(ptr2++);
 	return (dst);
 }
 

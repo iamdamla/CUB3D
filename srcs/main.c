@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acaplat <acaplat@student.42.fr>            +#+  +:+       +#+        */
+/*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:50:31 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/25 19:40:35 by acaplat          ###   ########.fr       */
+/*   Updated: 2024/01/27 13:58:16 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,9 @@ int	main(int argc, char **argv)
 	find_dim(cub.map, &cub);
 	flood_fill(cub.map, cub.horizontale, cub.verticale);
 	open_window(&mlx);
-	free_arr(cub.map);
 	free(mlx.tab);
 	free(mlx.tab_wall);
+	free_arr(cub.map);
+	free_arr(cub.map_cpy);
 	return (0);
 }

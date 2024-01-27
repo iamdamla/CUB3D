@@ -6,7 +6,7 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 10:14:09 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:46:34 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:12:40 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,14 @@ static void	init_ray(t_ray *ray, int x1, int y1, double angle)
 static void	draw_line(t_mlx *mlx, int x1, int y1, double angle)
 {
 	t_ray	*ray;
-	// int		err;
 	int		e2;
 
 	ray = &(mlx->raycast);
 	init_ray(ray, x1, y1, angle);
-	// err = ray->dx - ray->dy;
 	e2 = 2 * ray->err;
 	while (1)
 	{
-		mlx_put_pixel(mlx->img_ray, x1, y1, rgb_to_hex(0,0,46,255));
+		mlx_put_pixel(mlx->img_ray, x1, y1, rgb_to_hex(0, 0, 46, 255));
 		if ((x1 == ray->x2 && y1 == ray->y2) || is_wall(mlx, x1, y1))
 			break ;
 		e2 = 2 * ray->err;

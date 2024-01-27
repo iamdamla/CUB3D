@@ -6,17 +6,16 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:58:01 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:56:13 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:14:09 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-
 void	draw_screen(t_mlx *mlx)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -41,4 +40,3 @@ void	draw_screen(t_mlx *mlx)
 		y = 0;
 	}
 }
-

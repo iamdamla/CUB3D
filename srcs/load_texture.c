@@ -6,7 +6,7 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 14:18:47 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:47:01 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:13:05 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,55 @@ void	load_img(t_cub *cub)
 int	rgb_to_hex(int r, int g, int b, int a)
 {
 	return (r << 24 | g << 16 | b << 8 | a);
+}
+
+static void	texture_helper(char **map, t_cub *cub, int i, int j)
+{
+	int	start;
+
+	if (map[i][j] == 'W' && map[i][j + 1] == 'E')
+	{
+		start = j + 2;
+		while (map[i][start] == ' ')
+			++start;
+		cub->path_west = map[i] + start;
+	}
+	else if (map[i][j] == 'E' && map[i][j + 1] == 'A')
+	{
+		start = j + 2;
+		while (map[i][start] == ' ')
+			++start;
+		cub->path_east = map[i] + start;
+	}
+	else if (map[i][j] == 'S' && map[i][j + 1] == 'O')
+	{
+		start = j + 2;
+		while (map[i][start] == ' ')
+			++start;
+		cub->path_south = map[i] + start;
+	}
+}
+
+void	check_map_texture(char **map, t_cub *cub)
+{
+	int	i;
+	int	j;
+	int	start;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j] == ' ')
+			++j;
+		if (map[i][j] == 'N' && map[i][j + 1] == 'O')
+		{
+			start = j + 2;
+			while (map[i][start] == ' ')
+				++start;
+			cub->path_north = map[i] + start;
+		}
+		texture_helper(map, cub, i, j);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 12:59:11 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:46:21 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:15:22 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	event(mlx_key_data_t event, void *content)
 	(void)event;
 	mlx = content;
 	if (mlx_is_key_down(mlx->id, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx->id);	
+		mlx_close_window(mlx->id);
 }
 
 void	loop(void *param)

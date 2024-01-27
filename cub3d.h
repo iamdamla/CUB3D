@@ -6,7 +6,7 @@
 /*   By: derblang <derblang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:47:47 by derblang          #+#    #+#             */
-/*   Updated: 2024/01/27 11:54:38 by derblang         ###   ########.fr       */
+/*   Updated: 2024/01/27 14:19:07 by derblang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_cub
 {
 	char			**map;
 	char			**map_cpy;
+	char			*color_code;
+	char			*space_ptr;
 	char			*floor_color;
 	char			*ceilling_color;
 	int				horizontale;
@@ -153,7 +155,7 @@ void				get_color(char *line, t_cub *cub);
 // mlx
 void				draw_cell_bis(t_mlx *mlx, int x, int y);
 void				draw_character(t_mlx *mlx);
-// void delete_character(t_mlx *mlx);
+
 void				draw_cell(t_mlx *mlx, int x, int y);
 void				open_window(t_mlx *mlx);
 
@@ -207,6 +209,5 @@ t_rgb				find_k(t_mlx *mlx, int x_wall, int y_wall, t_rgb color);
 // load texture
 void				load_img(t_cub *cub);
 int					rgb_to_hex(int r, int g, int b, int a);
-size_t	get_longest_line(char **map);
 
 #endif
